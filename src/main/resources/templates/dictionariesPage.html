@@ -13,8 +13,8 @@
 <body>
 <div>
     <h3> Список уникальных слов (c <span th:text="${start+1} + ' по ' + ${end}"></span>)</h2>
-        <a th:href="'dictionary?start='+${start-20}" class="btn btn-secondary" role="button"><-Last</a>
-        <a th:href="'dictionary?start='+${start+20}" class="btn btn-secondary" role="button">Next</a>
+        <a th:href="'dictionary?start='+${start-20}" class="btn btn-secondary" role="button"><-Предыдущие слова</a>
+        <a th:href="'dictionary?start='+${start+20}" class="btn btn-secondary" role="button">Следующие слова-></a>
     </h3>
     <br><br>
     <form method="post" action="/delete">

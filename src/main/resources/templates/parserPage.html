@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Parser</title>
+</head>
+<body>
+<div>
+    <h3> Введите URL адрес </span></h3>
+    <form method="post" action="/parsing">
+        <label>URL:
+            <input name="url" placeholder="https://" required>
+        </label>
+        <button type="submit" value="add user" class="btn btn-secondary">Ok</button>
+        <span style="color: #0d409d" th:text="${error}"> </span>
+    </form>
+    <br>
+    <a href="/dictionary" class="btn btn-secondary" role="button">Статистика уникальных слов</a>
+    <br><br>
+    <h3> Статистика запросов</h3>
+    <table border="1" cellpadding="10" style="border-collapse: collapse; border: 1px solid black;">
+        <tr>
+            <th>Id</th>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>URL адрес</th>
+        </tr>
+        <tr th:each="statistics: ${listStatistics}">
+            <td th:text="${statistics.id}"></td>
+            <td th:text="${statistics.date}"></td>
+            <td th:text="${statistics.time}"></td>
+            <td th:text="${statistics.url}"></td>
+            <td>
+                <form method="post" th:action="@{'/statistics/' + ${statistics.id} + '/delete'}">
+                    <button type="submit" value="value" class="btn btn-secondary">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

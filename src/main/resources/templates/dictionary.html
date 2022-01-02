@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Parser</title>
+</head>
+<body>
+<div>
+    <h2> Список уникальных слов по адресу <span th:text="${url}"></span></h2>
+    <a href="/parser" class="btn btn-secondary" role="button">Назад</a>
+    <br> <br>
+    <table border="1" cellpadding="10" style="border-collapse: collapse; border: 1px solid black;">
+        <tr>
+            <th>Слово</th>
+            <th>Количество</th>
+        </tr>
+        <tr th:each="key: ${dictionary.keySet()}">
+            <td th:text="${key}"></td>
+            <td th:text="${dictionary.get(key)}"></td>
+        </tr>
+    </table>
+    <br>
+    <a href="/parser" class="btn btn-secondary" role="button">Назад</a>
+</div>
+</body>
+</html>
